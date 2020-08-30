@@ -2,7 +2,7 @@ import socket
 import sys
 import threading
 host = '191.252.186.52'
-porta = 50002
+porta = 50001
 objSocket = None
 
 def lerMensagens():
@@ -18,5 +18,6 @@ try:
         threadLerMensagens.start()
         while True:
             objSocket.sendall(input().encode())
-except:
+except Exception as e:
+    print(e)
     objSocket.close()
